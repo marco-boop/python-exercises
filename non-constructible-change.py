@@ -1,4 +1,4 @@
-coins = [87]
+coins = [5, 7, 1, 1, 2, 3, 22]
 
 # //messy 
 
@@ -32,31 +32,42 @@ coins = [87]
 #         theChange = sumOfSmallCoins + nextLargestCoin + 1
 #     return theChange
 
-def nonConstructibleChange(coins):
-    # Define our placeholder
-    theChange = 1
-    sumOfSmallCoins = 0
-    # Then all the exceptions for small array
-    if len(coins) == 0:
-        return theChange
-    if len(coins) == 1:
-        if coins[0] == 1:
-            theChange = 2
-        else:
-            theChange = 1
-        return theChange
-    # Sort the existing array
-    sortedCoins = sorted(coins)
-    for coin in range(len(sortedCoins)-1):
-        sumOfSmallCoins += sortedCoins[coin]
-        nextLargestCoin = sortedCoins[coin + 1]
-        if sumOfSmallCoins + 1 < nextLargestCoin:
-           sumOfSmallCoins + 1
-           theChange = sumOfSmallCoins + 1
-           return theChange
-        theChange = sumOfSmallCoins + nextLargestCoin + 1
-    return theChange
+# def nonConstructibleChange(coins):
+#     # Define our placeholder
+#     theChange = 1
+#     sumOfSmallCoins = 0
+#     # Then all the exceptions for small array
+#     if len(coins) == 0:
+#         return theChange
+#     if len(coins) == 1:
+#         if coins[0] == 1:
+#             theChange = 2
+#         else:
+#             theChange = 1
+#         return theChange
+#     # Sort the existing array
+#     sortedCoins = sorted(coins)
+#     for coin in range(len(sortedCoins)-1):
+#         sumOfSmallCoins += sortedCoins[coin]
+#         nextLargestCoin = sortedCoins[coin + 1]
+#         if sumOfSmallCoins + 1 < nextLargestCoin:
+#            sumOfSmallCoins + 1
+#            theChange = sumOfSmallCoins + 1
+#            return theChange
+#         theChange = sumOfSmallCoins + nextLargestCoin + 1
+#     return theChange
 
+# This is the textbook's answer
+def nonConstructibleChange(coins):
+    coins.sort()
+    print(coins)
+    theChange = 0
+
+    for coin in coins:
+        if coin > theChange + 1:
+            return theChange
+        theChange += coin
+    return theChange
 
 answer = nonConstructibleChange(coins)
 print(answer)
