@@ -3,10 +3,7 @@ array = [5, -2, 2, -8, 3, -10, -6, -1, 2, -2, 9, 1, 1]
 def selectionSort(array):
 
     def swap(array,a,b):
-        print("Gonna swap",array[a]," and ",array[b])
-        placeholder = array[a]
-        array[a] = array[b]
-        array[b] = placeholder
+        array[a], array[b] = array[b], array[a]
         return array
 
     for i in range(len(array)):
