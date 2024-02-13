@@ -9,7 +9,7 @@ def bestSeat(seats):
     while rightPointer < len(seats):
         print(leftPointer," and ", rightPointer)
         if seats[leftPointer] == 1 and seats[rightPointer] == 1:
-            currentDistance = rightPointer - leftPointer
+            currentDistance = rightPointer - leftPointer - 1
             if currentDistance > longestSpace:
                 longestSpace = currentDistance
                 bestSeat = (leftPointer + rightPointer) // 2
