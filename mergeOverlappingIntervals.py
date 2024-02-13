@@ -6,6 +6,10 @@ intervals = [
   [9, 10]
 ]
 
+# two key learnings:
+# array[-1] to access the last value in an array
+# max(value1, value2) to get the max value between multiple values
+
 def mergeOverlappingIntervals(intervals):
     out = []
     intervals.sort()
