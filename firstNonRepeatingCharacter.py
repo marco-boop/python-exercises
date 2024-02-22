@@ -1,21 +1,62 @@
-string = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
+# string = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
+string = "abcdcaf"
 
 def firstNonRepeatingCharacter(string):
     dict = {}
-    for i in range(len(string)):
-        if string[i] not in dict:
-            dict[string[i]] = 1
+    for char in string:
+        if char in dict:
+            dict[char] += 1
         else:
-            dict[string[i]] += 1
-    print(dict)
-    firstMatch = next(((key, value) for key, value in dict.items() if value == 1), None)
-    if firstMatch == None:
-        return -1
-    else:
-        result = string.index(firstMatch[0])
+            dict[char] = 1
+    for i in range(len(string)):
+        if dict[string[i]] == 1:
+            return i
+    return -1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def firstNonRepeatingCharacter(string):
+    # dict = {}
+    # for i in range(len(string)):
+    #     if string[i] not in dict:
+    #         dict[string[i]] = 1
+    #     else:
+    #         dict[string[i]] += 1
+    # print(dict)
+    # firstMatch = next(((key, value) for key, value in dict.items() if value == 1), None)
+    # if firstMatch == None:
+    #     return -1
+    # else:
+    #     result = string.index(firstMatch[0])
         
-    print(result)
-    return result
+    # print(result)
+    # return result
 
 
 

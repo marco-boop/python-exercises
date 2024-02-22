@@ -1,29 +1,66 @@
 import math
 
-array = [1, 5, 23, 111]
-target = 120
+array = [0, 1, 21, 33, 45, 45, 61, 71, 72, 73, 355]
+target = 355
 
-import math
+def binarySearch(array, target):
+    left = 0
+    right = len(array) - 1
+    while left <= right:
+        middle = (left + right) // 2
+        print("left is: ",left)
+        print("right is: ",right)
+        print("middle is: ",middle)
+        if left == right:
+            if array[left] == target:
+                return left
+            else:
+                return -1
+        if array[middle] == target:
+            return middle
+        elif array[middle] > target:
+            right = middle 
+        else:
+            left = middle + 1
+    return -1
 
-def binarySearch(array, target, start = 0, end = None):
+answer = binarySearch(array, target)
+print(answer)
 
-    if end is None:
-         end = len(array)
 
-    halfIndex = start + math.floor((end - start) / 2)
 
-    if start > end:
-         return -1
 
-    if halfIndex > len(array) - 1:
-        return -1
+
+
+
+
+
+
+
+
+
+
+
+
+# def binarySearch(array, target, start = 0, end = None):
+
+#     if end is None:
+#          end = len(array)
+
+#     halfIndex = start + math.floor((end - start) / 2)
+
+#     if start > end:
+#          return -1
+
+#     if halfIndex > len(array) - 1:
+#         return -1
     
-    if array[halfIndex] == target:
-        return halfIndex
-    elif array[halfIndex] > target:
-         return binarySearch(array, target, start, halfIndex - 1)
-    else:
-         return binarySearch(array, target, halfIndex + 1, end)
+#     if array[halfIndex] == target:
+#         return halfIndex
+#     elif array[halfIndex] > target:
+#          return binarySearch(array, target, start, halfIndex - 1)
+#     else:
+#          return binarySearch(array, target, halfIndex + 1, end)
 
 # def binarySearch(array, target, halfIndex = None):
 
@@ -36,30 +73,30 @@ def binarySearch(array, target, start = 0, end = None):
     
 #     findMiddle(array)
 
-def binarySearch(array, target, start = 0, end = None):
+# def binarySearch(array, target, start = 0, end = None):
 
-    if end is None:
-         end = len(array)
+#     if end is None:
+#          end = len(array)
 
-    halfIndex = start + math.floor((end - start) / 2)
-    print("Start is: ",start)
-    print("End is: ",end)
-    print("Half index is: ",halfIndex)
+#     halfIndex = start + math.floor((end - start) / 2)
+#     print("Start is: ",start)
+#     print("End is: ",end)
+#     print("Half index is: ",halfIndex)
 
-    if start > end:
-        return -1
+#     if start > end:
+#         return -1
     
-    if halfIndex > len(array) - 1:
-        return -1
+#     if halfIndex > len(array) - 1:
+#         return -1
     
-    if array[halfIndex] == target:
-        return halfIndex
-    elif array[halfIndex] > target:
-         print("On the left: New half index is: ")
-         return binarySearch(array, target, start, halfIndex - 1)
-    else:
-         print("Current is smaller so going right: New half index is: ")
-         return binarySearch(array, target, halfIndex + 1, end)
+#     if array[halfIndex] == target:
+#         return halfIndex
+#     elif array[halfIndex] > target:
+#          print("On the left: New half index is: ")
+#          return binarySearch(array, target, start, halfIndex - 1)
+#     else:
+#          print("Current is smaller so going right: New half index is: ")
+#          return binarySearch(array, target, halfIndex + 1, end)
 
-answer = binarySearch(array, target)
-print(answer)
+# answer = binarySearch(array, target)
+# print(answer)
